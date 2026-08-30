@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>대출 상환 계산기 (원리금균등·원금균등·만기일시) - 머니툴즈</title>
+<meta name="description" content="대출금액, 금리, 기간을 입력하면 원리금균등·원금균등·만기일시 3가지 방식의 월 상환액과 총 이자를 계산하고 첫 12개월 상환 스케줄을 보여 줍니다.">
+<!-- 구글 서치콘솔 소유확인 (발급 후 주석 해제)
+<meta name="google-site-verification" content="XXXXXXXXXX">
+-->
+<!-- 네이버 서치어드바이저 소유확인 (발급 후 주석 해제)
+<meta name="naver-site-verification" content="XXXXXXXXXX">
+-->
+<!-- 구글 애드센스 (승인 후 주석 해제)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">머니툴즈</a>
+    <nav class="site-nav">
+      <a href="salary.html">연봉 실수령액</a>
+      <a href="savings.html">적금</a>
+      <a href="deposit.html">예금</a>
+      <a href="loan.html" class="active">대출</a>
+      <a href="severance.html">퇴직금</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>대출 상환 계산기</h1>
+  <p class="page-desc">원리금균등·원금균등·만기일시 세 가지 상환 방식의 월 상환액과 총 이자를 계산하고, 첫 12개월 상환 스케줄을 표로 보여 드립니다.</p>
+
+  <form id="loan-form" class="calc-box" novalidate>
+    <div class="field">
+      <label for="loan-amount">대출금액 (원)</label>
+      <input type="text" id="loan-amount" data-comma inputmode="numeric" placeholder="예: 300,000,000" autocomplete="off">
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="loan-term">대출 기간</label>
+        <input type="number" id="loan-term" min="1" step="1" placeholder="예: 30">
+      </div>
+      <div class="field">
+        <label for="loan-term-unit">기간 단위</label>
+        <select id="loan-term-unit">
+          <option value="year">년</option>
+          <option value="month">개월</option>
+        </select>
+      </div>
+    </div>
+    <div class="field">
+      <label for="loan-rate">연 이자율 (%)</label>
+      <input type="number" id="loan-rate" min="0" max="100" step="0.01" placeholder="예: 4.2">
+    </div>
+    <div class="field">
+      <label>상환 방식</label>
+      <div class="radio-group">
+        <label><input type="radio" name="loan-method" value="annuity" checked> 원리금균등</label>
+        <label><input type="radio" name="loan-method" value="equal-principal"> 원금균등</label>
+        <label><input type="radio" name="loan-method" value="bullet"> 만기일시</label>
+      </div>
+    </div>
+    <button type="submit" class="btn">상환액 계산하기</button>
+    <p class="error-msg" id="loan-error"></p>
+  </form>
+
+  <div class="result-box" id="loan-result">
+    <div class="result-main">
+      <div class="label" id="loan-first-label">매월 상환액</div>
+      <div class="value" id="loan-first">-</div>
+    </div>
+    <table class="result-table">
+      <tr><th>상환 방식</th><td id="loan-method-label">-</td></tr>
+      <tr><th>총 이자</th><td id="loan-total-interest">-</td></tr>
+      <tr class="total"><th>총 상환액 (원금+이자)</th><td id="loan-total-payment">-</td></tr>
+    </table>
+    <div class="table-scroll">
+      <table class="data-table">
+        <thead>
+          <tr><th>회차</th><th>월 상환액</th><th>납입 원금</th><th>이자</th><th>남은 원금</th></tr>
+        </thead>
+        <tbody id="loan-schedule-body"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <section class="article-section">
+    <h2>세 가지 상환 방식, 무엇이 다른가요?</h2>
+    <p>같은 금액을 같은 금리로 빌려도 상환 방식에 따라 매달 내는 돈과 총 이자가 크게 달라집니다. 이 계산기는 국내 대출에서 가장 흔한 세 가지 방식을 지원합니다.</p>
+    <ul>
+      <li><strong>원리금균등상환</strong>: 만기까지 매달 같은 금액(원금+이자)을 냅니다. 초반에는 이자 비중이 높고 갈수록 원금 비중이 커집니다. 매달 지출이 일정해 가계 계획을 세우기 쉬워 주택담보대출에서 가장 널리 쓰입니다.</li>
+      <li><strong>원금균등상환</strong>: 매달 같은 원금을 갚고 이자는 남은 원금에 대해서만 냅니다. 첫 달 상환액이 가장 크고 갈수록 줄어듭니다. 세 방식 중 총 이자가 가장 적습니다.</li>
+      <li><strong>만기일시상환</strong>: 매달 이자만 내다가 만기에 원금을 한꺼번에 갚습니다. 매달 부담은 가장 작지만 원금이 줄지 않아 총 이자가 가장 많습니다. 전세자금대출이나 단기 신용대출에서 흔합니다.</li>
+    </ul>
+    <p>원리금균등의 월 상환액은 "대출금 × 월 이자율 ÷ (1 − (1+월 이자율)<sup>−개월 수</sup>)" 공식으로 구하며, 월 이자율은 연 이자율을 12로 나눈 값입니다.</p>
+
+    <h2>용어 정리</h2>
+    <ul>
+      <li><strong>원금</strong>: 실제로 빌린 돈. <strong>이자</strong>: 돈을 빌린 대가로 내는 비용입니다.</li>
+      <li><strong>거치기간</strong>: 원금 상환 없이 이자만 내는 기간입니다. 이 계산기는 거치기간 없이 계산합니다.</li>
+      <li><strong>중도상환수수료</strong>: 만기 전에 원금을 갚을 때 부과될 수 있는 수수료로, 이 계산에는 포함되지 않습니다.</li>
+      <li><strong>DSR(총부채원리금상환비율)</strong>: 연 소득 대비 모든 대출의 연간 원리금 상환액 비율로, 대출 한도 심사에 사용됩니다.</li>
+    </ul>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <p class="q">Q. 총 이자를 줄이려면 어떤 방식을 골라야 하나요?</p>
+      <p class="a">A. 총 이자만 보면 원금균등이 가장 적고, 만기일시가 가장 많습니다. 다만 원금균등은 초반 상환 부담이 커서 매달 낼 수 있는 금액을 함께 고려해야 합니다. 계산기에서 방식을 바꿔 가며 월 상환액과 총 이자를 비교해 보세요.</p>
+    </div>
+    <div class="faq-item">
+      <p class="q">Q. 계산 결과가 은행 견적과 다른 이유는 무엇인가요?</p>
+      <p class="a">A. 이 계산기는 고정금리·매월 말 상환·거치기간 없음을 가정한 이론값입니다. 실제 대출은 변동금리, 일할 계산, 상환일 위치, 중도상환, 보증료·인지세 같은 부대비용에 따라 금액이 달라질 수 있습니다. 정확한 조건은 반드시 해당 금융회사에서 확인하세요.</p>
+    </div>
+    <div class="faq-item">
+      <p class="q">Q. 변동금리 대출도 계산할 수 있나요?</p>
+      <p class="a">A. 이 계산기는 입력한 금리가 만기까지 유지된다고 가정합니다. 변동금리 대출이라면 현재 금리 기준의 참고치로 활용하고, 금리가 오르내리는 시나리오별로 여러 번 계산해 비교해 보는 것을 권합니다.</p>
+    </div>
+
+    <p class="notice">계산 결과는 고정금리·거치기간 없음·매월 상환을 가정한 참고용 근사치입니다. 실제 상환액과 총 이자는 금융회사의 산정 방식, 변동금리, 수수료에 따라 달라질 수 있으며, 본 결과는 대출 권유나 금융 자문이 아닙니다. 기준일: 2026-08-30.</p>
+  </section>
+
+  <!-- AD SLOT -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="about.html">소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
+    <p class="footer-disclaimer">머니툴즈의 모든 계산 결과는 참고용 근사치이며, 금융·세무·법률 자문이 아닙니다. 실제 금액은 관련 기관과 금융회사의 산정 결과를 따르며, 이용에 따른 판단과 책임은 이용자 본인에게 있습니다.</p>
+    <p class="footer-copy">© 2026 머니툴즈</p>
+  </div>
+</footer>
+
+<script src="assets/rates.js"></script>
+<script src="assets/calc.js"></script>
+</body>
+</html>

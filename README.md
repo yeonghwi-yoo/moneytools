@@ -1,0 +1,65 @@
+# 머니툴즈 (moneytools)
+
+한국어 금융 계산기 정적 사이트. GitHub Pages 프로젝트 사이트로 배포됩니다.
+
+- 배포 주소: https://yeonghwi-yoo.github.io/moneytools/
+- 빌드 도구 없음: 순수 HTML + CSS + 바닐라 JS (`main` 푸시 시 자동 배포)
+- Jekyll 처리 방지를 위해 루트에 `.nojekyll` 포함
+
+## 구조
+
+```
+/
+├── index.html        # 홈 (계산기 디렉토리)
+├── salary.html       # 연봉 실수령액 계산기
+├── savings.html      # 적금 만기 계산기
+├── deposit.html      # 예금 이자 계산기
+├── loan.html         # 대출 상환 계산기
+├── severance.html    # 퇴직금 계산기
+├── about.html        # 소개
+├── privacy.html      # 개인정보처리방침
+├── 404.html          # 404 (스타일 인라인)
+├── sitemap.xml
+├── robots.txt
+├── .nojekyll
+└── assets/
+    ├── style.css     # 공용 스타일 (모바일 우선)
+    ├── rates.js      # ★ 요율 상수 (여기만 고치면 전체 반영)
+    └── calc.js       # 모든 계산기 로직 + 공용 유틸
+```
+
+모든 내부 링크와 정적 파일 경로는 상대 경로라서 `/moneytools/` 하위 경로에서 깨지지 않습니다.
+
+## 요율 갱신 방법
+
+요율이 바뀌면 **`assets/rates.js` 한 파일만** 수정합니다. 각 상수 옆 주석에 출처와 기준일이 적혀 있습니다.
+
+| 항목 | 상수 | 2026-08-30 기준값 |
+|---|---|---|
+| 국민연금 근로자 부담 | `RATES.pension.employeeRate` | 0.0475 (전체 9.5%) |
+| 기준소득월액 상한/하한 | `RATES.pension.incomeMax` / `incomeMin` | 6,590,000 / 410,000 (매년 7월 변경) |
+| 건강보험 근로자 부담 | `RATES.health.employeeRate` | 0.03595 (전체 7.19%) |
+| 건강보험 전체 요율 | `RATES.health.totalRate` | 0.0719 (장기요양 환산에 사용) |
+| 장기요양 (소득 대비) | `RATES.longTermCare.rateOfIncome` | 0.009448 |
+| 고용보험 근로자 부담 | `RATES.employment.employeeRate` | 0.009 |
+| 이자소득세 | `RATES.interestTax.total` | 0.154 |
+| 소득세 세율표·공제 | `RATES.incomeTaxBrackets` 등 | 소득세법 개정 시 갱신 |
+
+갱신 체크 시점:
+- 매년 1월: 국민연금 보험료율 (연금개혁으로 2033년까지 매년 0.5%p 인상 예정), 건강보험·장기요양·고용보험 요율, 소득세법 개정 여부
+- 매년 7월: 국민연금 기준소득월액 상·하한
+- 갱신 후 각 계산기 페이지 하단 `notice`의 기준일 문구와 `rates.js`의 `baseDate`도 함께 수정
+
+## 애드센스 신청 절차 체크리스트
+
+1. [ ] 사이트 배포 확인 (모든 페이지 정상 로드, 모바일 확인)
+2. [ ] 구글 서치콘솔 등록: 각 페이지 head의 `google-site-verification` 주석을 실제 값으로 교체 후 주석 해제, `sitemap.xml` 제출
+3. [ ] (선택) 네이버 서치어드바이저 등록: `naver-site-verification` 메타 태그 교체
+4. [ ] 애드센스 계정 생성 후 사이트 추가 → 발급받은 `ca-pub-XXXXXXXXXXXXXXXX`로 각 페이지 head의 애드센스 스크립트 주석을 교체 후 주석 해제
+5. [ ] 루트에 `ads.txt` 추가 (`google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0`)
+6. [ ] 심사 통과 후 광고 단위 생성 → 각 페이지 본문의 `<!-- AD SLOT -->` 주석 위치에 광고 코드 삽입 (페이지당 2곳)
+7. [ ] 개인정보처리방침(`privacy.html`)의 광고·쿠키 조항 최신 상태 유지
+
+## 면책
+
+모든 계산 결과는 참고용 근사치입니다. 근로소득세는 간이세액표를 단순화한 근사식이며, 실제 공제액·이자·퇴직금은 관련 기관과 금융회사의 산정에 따릅니다.

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>퇴직금 계산기 (평균임금 × 30일 × 재직일수/365) - 머니툴즈</title>
+<meta name="description" content="입사일, 퇴직일, 월급을 입력하면 법정 퇴직금 예상액을 계산합니다. 1일 평균임금 × 30일 × (재직일수/365) 방식, 상여금·연차수당 반영.">
+<!-- 구글 서치콘솔 소유확인 (발급 후 주석 해제)
+<meta name="google-site-verification" content="XXXXXXXXXX">
+-->
+<!-- 네이버 서치어드바이저 소유확인 (발급 후 주석 해제)
+<meta name="naver-site-verification" content="XXXXXXXXXX">
+-->
+<!-- 구글 애드센스 (승인 후 주석 해제)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">머니툴즈</a>
+    <nav class="site-nav">
+      <a href="salary.html">연봉 실수령액</a>
+      <a href="savings.html">적금</a>
+      <a href="deposit.html">예금</a>
+      <a href="loan.html">대출</a>
+      <a href="severance.html" class="active">퇴직금</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>퇴직금 계산기</h1>
+  <p class="page-desc">근로자퇴직급여 보장법의 법정 퇴직금 산식(1일 평균임금 × 30일 × 재직일수/365)으로 예상 퇴직금을 계산합니다.</p>
+
+  <form id="severance-form" class="calc-box" novalidate>
+    <div class="field-row">
+      <div class="field">
+        <label for="sev-start">입사일</label>
+        <input type="date" id="sev-start">
+      </div>
+      <div class="field">
+        <label for="sev-end">퇴직일</label>
+        <input type="date" id="sev-end">
+        <span class="hint">마지막 근무일의 다음 날짜를 선택하세요.</span>
+      </div>
+    </div>
+    <div class="field">
+      <label for="sev-wage">세전 월급 (원)</label>
+      <input type="text" id="sev-wage" data-comma inputmode="numeric" placeholder="예: 3,500,000" autocomplete="off">
+      <span class="hint">퇴직 전 3개월간 월급이 같다고 가정하고 3개월 임금총액을 계산합니다.</span>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="sev-bonus">연간 상여금 총액 (원, 선택)</label>
+        <input type="text" id="sev-bonus" data-comma inputmode="numeric" placeholder="0" autocomplete="off">
+      </div>
+      <div class="field">
+        <label for="sev-leave">연차수당 (원, 선택)</label>
+        <input type="text" id="sev-leave" data-comma inputmode="numeric" placeholder="0" autocomplete="off">
+      </div>
+    </div>
+    <button type="submit" class="btn">퇴직금 계산하기</button>
+    <p class="error-msg" id="severance-error"></p>
+  </form>
+
+  <div class="result-box" id="severance-result">
+    <div class="result-main">
+      <div class="label">예상 퇴직금 (세전)</div>
+      <div class="value" id="sev-total">-</div>
+    </div>
+    <table class="result-table">
+      <tr><th>재직일수</th><td id="sev-days">-</td></tr>
+      <tr><th>퇴직 전 3개월 일수</th><td id="sev-period">-</td></tr>
+      <tr><th>3개월 임금총액 (상여·연차 반영)</th><td id="sev-3month">-</td></tr>
+      <tr class="total"><th>1일 평균임금</th><td id="sev-avg">-</td></tr>
+    </table>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <section class="article-section">
+    <h2>퇴직금은 어떻게 계산되나요?</h2>
+    <p>근로자퇴직급여 보장법에 따라 1년 이상 계속 근로한 근로자가 퇴직하면, 사용자는 계속근로기간 1년에 대해 30일분 이상의 평균임금을 퇴직금으로 지급해야 합니다. 산식으로 쓰면 <strong>퇴직금 = 1일 평균임금 × 30일 × (재직일수 ÷ 365)</strong>입니다.</p>
+    <p>핵심은 <strong>1일 평균임금</strong>입니다. 퇴직일 이전 3개월 동안 지급된 임금 총액을 그 기간의 총 일수(대략 89~92일)로 나눠 구합니다. 임금 총액에는 기본급과 고정 수당 외에도 연간 상여금의 3/12, 연차유급휴가 미사용 수당의 3/12가 포함됩니다. 이 계산기는 입력한 월급이 퇴직 전 3개월간 동일했다고 가정하고, 달력 기준으로 실제 3개월 일수를 계산해 적용합니다.</p>
+
+    <h2>용어 정리</h2>
+    <ul>
+      <li><strong>평균임금</strong>: 산정 사유 발생일 이전 3개월간 임금 총액을 그 기간의 총일수로 나눈 금액입니다.</li>
+      <li><strong>통상임금</strong>: 정기적·일률적으로 지급되는 임금으로, 평균임금이 통상임금보다 적으면 통상임금을 기준으로 퇴직금을 계산합니다.</li>
+      <li><strong>계속근로기간</strong>: 입사일부터 퇴직일까지의 기간으로, 수습·휴직 기간도 원칙적으로 포함됩니다.</li>
+      <li><strong>퇴직연금(DB/DC)</strong>: 회사가 퇴직급여를 금융기관에 적립하는 제도로, DC형은 이 산식과 금액이 다를 수 있습니다.</li>
+    </ul>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <p class="q">Q. 1년을 못 채우면 퇴직금을 전혀 못 받나요?</p>
+      <p class="a">A. 법정 퇴직금은 계속근로기간이 1년 이상이어야 발생합니다. 1년 미만 근무자, 4주 평균 주 15시간 미만 근무자는 지급 대상이 아닙니다. 다만 회사 규정이나 계약으로 더 유리한 조건을 정했다면 그에 따릅니다.</p>
+    </div>
+    <div class="faq-item">
+      <p class="q">Q. 계산 결과에서 세금을 더 떼나요?</p>
+      <p class="a">A. 네, 이 결과는 세전 금액입니다. 퇴직금에는 퇴직소득세가 부과되는데, 근속연수공제와 환산급여공제가 적용되어 일반 소득세보다 부담이 낮은 편입니다. 퇴직소득세는 근속연수와 금액에 따라 달라지므로 국세청 홈택스의 퇴직소득 세액 계산 프로그램을 이용해 보세요.</p>
+    </div>
+    <div class="faq-item">
+      <p class="q">Q. DC형 퇴직연금인데 이 계산기와 금액이 다릅니다.</p>
+      <p class="a">A. DC(확정기여)형은 회사가 매년 연간 임금총액의 1/12 이상을 근로자 계좌에 넣고 운용 수익에 따라 최종 금액이 정해지므로, 평균임금 산식으로 계산하는 이 결과와 다를 수 있습니다. DB(확정급여)형은 법정 산식과 유사하게 계산됩니다.</p>
+    </div>
+
+    <p class="notice">계산 결과는 월급이 퇴직 전 3개월간 동일하다고 가정한 세전 참고치입니다. 실제 퇴직금은 평균임금에 포함되는 수당의 범위, 통상임금 비교, 휴직 기간 처리 등에 따라 달라질 수 있으며, 정확한 금액은 고용노동부 퇴직금 계산기 또는 회사 인사 담당자를 통해 확인하세요. 본 결과는 법률·세무 자문이 아닙니다. 기준일: 2026-08-30.</p>
+  </section>
+
+  <!-- AD SLOT -->
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-links">
+      <a href="about.html">소개</a>
+      <a href="privacy.html">개인정보처리방침</a>
+    </div>
+    <p class="footer-disclaimer">머니툴즈의 모든 계산 결과는 참고용 근사치이며, 금융·세무·법률 자문이 아닙니다. 실제 금액은 관련 기관과 금융회사의 산정 결과를 따르며, 이용에 따른 판단과 책임은 이용자 본인에게 있습니다.</p>
+    <p class="footer-copy">© 2026 머니툴즈</p>
+  </div>
+</footer>
+
+<script src="assets/rates.js"></script>
+<script src="assets/calc.js"></script>
+</body>
+</html>
