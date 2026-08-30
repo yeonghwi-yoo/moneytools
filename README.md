@@ -1,4 +1,4 @@
-# 머니툴즈 (moneytools)
+# 얼마받지 (moneytools)
 
 한국어 금융 계산기 정적 사이트. GitHub Pages 프로젝트 사이트로 배포됩니다.
 
@@ -19,15 +19,18 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 
 ```
 /
-├── index.html        # 홈 (계산기 디렉토리)
+├── index.html        # 홈 (히어로 + 계산기 카드 + 인기 가이드)
 ├── salary.html       # 연봉 실수령액 계산기
 ├── savings.html      # 적금 만기 계산기
 ├── deposit.html      # 예금 이자 계산기
 ├── loan.html         # 대출 상환 계산기
 ├── severance.html    # 퇴직금 계산기
+├── guides.html       # 금융 가이드 목록
+├── guide-*.html      # 가이드 글 11편 (4대보험/세금/저축/대출/퇴직/재테크)
 ├── about.html        # 소개
 ├── privacy.html      # 개인정보처리방침
 ├── 404.html          # 404 (스타일 인라인)
+├── ads.txt           # 애드센스 발급 후 pub ID 교체
 ├── sitemap.xml
 ├── robots.txt
 ├── .nojekyll
@@ -65,7 +68,7 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 2. [ ] 구글 서치콘솔 등록: 각 페이지 head의 `google-site-verification` 주석을 실제 값으로 교체 후 주석 해제, `sitemap.xml` 제출
 3. [ ] (선택) 네이버 서치어드바이저 등록: `naver-site-verification` 메타 태그 교체
 4. [ ] 애드센스 계정 생성 후 사이트 추가 → 발급받은 `ca-pub-XXXXXXXXXXXXXXXX`로 각 페이지 head의 애드센스 스크립트 주석을 교체 후 주석 해제
-5. [ ] 루트에 `ads.txt` 추가 (`google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0`)
+5. [ ] 루트 `ads.txt`의 주석을 지우고 `pub-XXXXXXXXXXXXXXXX`를 실제 게시자 ID로 교체
 6. [ ] 심사 통과 후 광고 단위 생성 → 각 페이지 본문의 `<!-- AD SLOT -->` 주석 위치에 광고 코드 삽입 (페이지당 2곳)
 7. [ ] 개인정보처리방침(`privacy.html`)의 광고·쿠키 조항 최신 상태 유지
 

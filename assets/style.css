@@ -1,4 +1,4 @@
-/* 머니툴즈 공용 스타일 — 모바일 우선 */
+/* 얼마받지 공용 스타일 — 모바일 우선 */
 :root {
   --blue: #1b5fd9;
   --blue-dark: #12459e;
@@ -313,3 +313,104 @@ h3 { font-size: 1.02rem; margin: 24px 0 8px; }
 /* 기타 */
 .not-found { text-align: center; padding: 60px 0; }
 .not-found .code { font-size: 4rem; font-weight: 800; color: var(--blue); margin: 0; }
+
+/* ── 홈 히어로 ── */
+.hero {
+  background: linear-gradient(135deg, #1b5fd9 0%, #2f7bff 100%);
+  border-radius: 16px;
+  color: #fff;
+  padding: 36px 24px;
+  margin-bottom: 28px;
+}
+
+.hero h1 { color: #fff; font-size: 1.7rem; margin: 0 0 10px; }
+.hero p { margin: 0 0 18px; font-size: 0.98rem; opacity: 0.92; max-width: 560px; }
+
+.hero-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+
+.hero-badges span {
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.card .card-icon { font-size: 1.5rem; margin-bottom: 8px; }
+
+/* ── 가이드 목록 ── */
+.guide-list { display: grid; gap: 12px; margin: 20px 0; }
+
+.guide-item {
+  display: block;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  text-decoration: none;
+  color: var(--text);
+  background: #fff;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.guide-item:hover { border-color: var(--blue); box-shadow: 0 4px 14px rgba(27, 95, 217, 0.1); }
+
+.guide-item .g-cat {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--blue);
+  background: var(--blue-light);
+  border-radius: 6px;
+  padding: 2px 8px;
+  margin-bottom: 6px;
+}
+
+.guide-item .g-title { font-size: 1.02rem; font-weight: 700; margin-bottom: 4px; }
+.guide-item .g-desc { font-size: 0.87rem; color: var(--text-sub); }
+
+/* ── 가이드 본문 페이지 ── */
+.article-meta { font-size: 0.8rem; color: var(--text-sub); margin-bottom: 20px; }
+
+.article-body h2 {
+  border-left: 4px solid var(--blue);
+  padding-left: 10px;
+  margin-top: 36px;
+}
+
+.article-body p { font-size: 0.97rem; }
+.article-body ul, .article-body ol { font-size: 0.97rem; }
+.article-body table { width: 100%; border-collapse: collapse; font-size: 0.88rem; margin: 14px 0; }
+.article-body th, .article-body td { border: 1px solid var(--border); padding: 8px 10px; text-align: left; }
+.article-body th { background: var(--bg-soft); white-space: nowrap; }
+
+.tip-box {
+  background: var(--blue-light);
+  border-radius: 10px;
+  padding: 14px 16px;
+  font-size: 0.92rem;
+  margin: 16px 0;
+}
+
+.tip-box strong { color: var(--blue-dark); }
+
+/* ── 관련 링크 박스 ── */
+.related-box {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--bg-soft);
+  padding: 16px;
+  margin-top: 28px;
+}
+
+.related-box .rel-title { font-weight: 800; font-size: 0.95rem; margin-bottom: 10px; }
+.related-box ul { list-style: none; margin: 0; padding: 0; }
+.related-box li { margin: 6px 0; font-size: 0.92rem; }
+.related-box a { color: var(--blue); text-decoration: none; }
+.related-box a:hover { text-decoration: underline; }
+
+/* ── 홈 섹션 헤더 ── */
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin-top: 36px; }
+.section-head h2 { margin: 0; }
+.section-head .more { font-size: 0.85rem; color: var(--blue); text-decoration: none; white-space: nowrap; }
+.section-head .more:hover { text-decoration: underline; }

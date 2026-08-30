@@ -1,0 +1,2 @@
+# 애드센스 승인 후 아래 줄의 XXXXXXXXXXXXXXXX 를 실제 게시자 ID로 교체하고 이 주석을 지우세요.
+# google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
