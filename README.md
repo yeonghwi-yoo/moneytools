@@ -6,6 +6,15 @@
 - 빌드 도구 없음: 순수 HTML + CSS + 바닐라 JS (`main` 푸시 시 자동 배포)
 - Jekyll 처리 방지를 위해 루트에 `.nojekyll` 포함
 
+## 배포 설정 (최초 1회)
+
+GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 수동 설정이 필요합니다.
+리포 **Settings → Pages → Build and deployment → Source**에서 둘 중 하나를 선택:
+
+1. **GitHub Actions** (권장): 포함된 `.github/workflows/pages.yml`이 `main` 푸시마다 자동 배포합니다.
+2. **Deploy from a branch** (`main` / root): GitHub 기본 "pages build and deployment" 워크플로가 배포합니다.
+   이 방식을 쓰면 `.github/workflows/pages.yml`은 삭제하세요 (두 방식이 충돌합니다).
+
 ## 구조
 
 ```
