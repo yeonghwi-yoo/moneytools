@@ -25,6 +25,8 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 ├── deposit.html      # 예금 이자 계산기
 ├── loan.html         # 대출 상환 계산기
 ├── severance.html    # 퇴직금 계산기
+├── hourly.html       # 시급 계산기 (주휴수당·최저임금)
+├── goal.html         # 목표 저축 역산기
 ├── guides.html       # 금융 가이드 목록
 ├── guide-*.html      # 가이드 글 11편 (4대보험/세금/저축/대출/퇴직/재테크)
 ├── about.html        # 소개

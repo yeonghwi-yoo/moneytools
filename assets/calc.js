@@ -339,6 +339,114 @@
     });
   }
 
+  // ── 시급 환산기 ──
+  var hourlyForm = document.getElementById("hourly-form");
+  if (hourlyForm) {
+    hourlyForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errEl = document.getElementById("hourly-error");
+      clearError(errEl);
+
+      var wage = parseNum(document.getElementById("hourly-wage").value);
+      var hours = parseNum(document.getElementById("hourly-hours").value);
+      var days = parseNum(document.getElementById("hourly-days").value);
+      var includeJuhyu = document.getElementById("hourly-juhyu").checked;
+
+      if (!validatePositive(wage, "시급", errEl, 10000000)) return;
+      if (isNaN(hours) || hours <= 0 || hours > 24) {
+        showError(errEl, "하루 근무시간은 0보다 크고 24 이하로 입력해 주세요.");
+        return;
+      }
+      if (isNaN(days) || days < 1 || days > 7 || days % 1 !== 0) {
+        showError(errEl, "주 근무일수는 1~7 사이의 정수로 입력해 주세요.");
+        return;
+      }
+
+      var weeklyHours = hours * days;
+      // 주휴수당: 주 15시간 이상 근무 시, 주 소정근로 40시간 비례(최대 8시간)
+      var juhyuHours = 0;
+      if (includeJuhyu && weeklyHours >= 15) {
+        juhyuHours = Math.min(weeklyHours / 40, 1) * 8;
+      }
+      var juhyuPay = wage * juhyuHours;
+      var weeklyPay = wage * weeklyHours + juhyuPay;
+      // 월 근로시간은 정수로 반올림 (고용노동부 방식: 주 48시간 × 4.345주 ≒ 209시간)
+      var monthlyHours = Math.round((weeklyHours + juhyuHours) * RATES.minWage.weeksPerMonth);
+      var monthly = wage * monthlyHours;
+      var annual = monthly * 12;
+
+      document.getElementById("hourly-monthly").textContent = won(monthly);
+      document.getElementById("hourly-weekly").textContent = won(weeklyPay);
+      document.getElementById("hourly-juhyu-pay").textContent =
+        juhyuHours > 0 ? won(juhyuPay) + " (주 " + (Math.round(juhyuHours * 10) / 10) + "시간분)"
+                       : (includeJuhyu ? "0원 (주 15시간 미만)" : "미포함");
+      document.getElementById("hourly-annual").textContent = won(annual);
+
+      var warnEl = document.getElementById("hourly-minwage-warn");
+      if (wage < RATES.minWage.hourly) {
+        warnEl.textContent = "⚠ 입력한 시급이 2026년 최저임금(" +
+          RATES.minWage.hourly.toLocaleString("ko-KR") + "원)보다 낮습니다.";
+        warnEl.style.display = "block";
+      } else {
+        warnEl.style.display = "none";
+      }
+      document.getElementById("hourly-result").classList.add("show");
+    });
+  }
+
+  // ── 목표 저축 역산기 ──
+  var goalForm = document.getElementById("goal-form");
+  if (goalForm) {
+    goalForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errEl = document.getElementById("goal-error");
+      clearError(errEl);
+
+      var target = parseNum(document.getElementById("goal-amount").value);
+      var months = parseNum(document.getElementById("goal-months").value);
+      var rate = parseNum(document.getElementById("goal-rate").value);
+      var method = goalForm.querySelector("input[name='goal-method']:checked").value;
+      if (isNaN(rate)) rate = 0;
+
+      if (!validatePositive(target, "목표 금액", errEl, 1000000000000)) return;
+      if (isNaN(months) || months < 1 || months > 600 || months % 1 !== 0) {
+        showError(errEl, "기간은 1~600 사이의 정수(개월)로 입력해 주세요.");
+        return;
+      }
+      if (rate < 0 || rate > 100) {
+        showError(errEl, "연 이자율은 0 이상 100 이하인 숫자(%)로 입력해 주세요.");
+        return;
+      }
+
+      var afterTax = 1 - RATES.interestTax.total;
+      var r = rate / 100;
+      var factor;
+      if (r === 0) {
+        factor = months;
+      } else if (method === "simple") {
+        // 매월 초 납입 단리: 이자 = m × (r/12) × n(n+1)/2, 세후 반영
+        factor = months + (r / 12) * (months * (months + 1) / 2) * afterTax;
+      } else {
+        var i = r / 12;
+        var fvf = ((Math.pow(1 + i, months) - 1) / i) * (1 + i);
+        factor = months + (fvf - months) * afterTax;
+      }
+
+      var monthly = Math.ceil(target / factor);
+      var totalDeposit = monthly * months;
+      var interest = target - totalDeposit; // 세후 이자 (근사)
+      if (interest < 0) interest = 0;
+      var noInterestMonthly = Math.ceil(target / months);
+
+      document.getElementById("goal-monthly").textContent = won(monthly);
+      document.getElementById("goal-total").textContent = won(totalDeposit);
+      document.getElementById("goal-interest").textContent = won(interest);
+      document.getElementById("goal-nointerest").textContent =
+        won(noInterestMonthly) + " (이자 도움 월 " + won(noInterestMonthly - monthly) + ")";
+      document.getElementById("goal-result").classList.add("show");
+    });
+  }
+
   // ── 5. 퇴직금 계산기 ──
   var sevForm = document.getElementById("severance-form");
   if (sevForm) {
