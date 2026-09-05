@@ -2,7 +2,8 @@
 
 한국어 금융 계산기 정적 사이트. GitHub Pages 프로젝트 사이트로 배포됩니다.
 
-- 배포 주소: https://yeonghwi-yoo.github.io/moneytools/
+- 배포 주소: https://money-tools.org/ (GitHub Pages + 커스텀 도메인)
+- 문의 이메일: contact@money-tools.org
 - 빌드 도구 없음: 순수 HTML + CSS + 바닐라 JS (`main` 푸시 시 자동 배포)
 - Jekyll 처리 방지를 위해 루트에 `.nojekyll` 포함
 
