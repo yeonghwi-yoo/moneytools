@@ -504,4 +504,169 @@
       document.getElementById("severance-result").classList.add("show");
     });
   }
+
+  // ── 6. 실업급여(구직급여) 계산기 ──
+  var unempForm = document.getElementById("unemployment-form");
+  if (unempForm) {
+    unempForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errEl = document.getElementById("unemp-error");
+      clearError(errEl);
+
+      var monthly = parseNum(document.getElementById("unemp-wage").value);
+      var age = parseNum(document.getElementById("unemp-age").value);
+      var period = Number(document.getElementById("unemp-period").value);
+      var disabled = document.getElementById("unemp-disabled").checked;
+
+      if (!validatePositive(monthly, "월 평균임금", errEl, 1000000000)) return;
+      if (isNaN(age) || age < 15 || age > 100 || age % 1 !== 0) {
+        showError(errEl, "나이는 15~100 사이의 정수로 입력해 주세요.");
+        return;
+      }
+
+      var U = RATES.unemployment;
+      var avgDaily = monthly * 3 / U.avgWageDays;
+      var raw = avgDaily * U.wageRate;
+      var daily = Math.min(Math.max(raw, U.dailyMin), U.dailyMax);
+      var table = (age >= 50 || disabled) ? U.benefitDaysOver50 : U.benefitDaysUnder50;
+      var days = table[period];
+      var total = daily * days;
+
+      var note;
+      if (raw > U.dailyMax) note = "평균임금의 60%(" + won(raw) + ")가 상한액을 넘어 1일 상한액 " + won(U.dailyMax) + "이 적용됩니다.";
+      else if (raw < U.dailyMin) note = "평균임금의 60%(" + won(raw) + ")가 하한액보다 적어 1일 하한액 " + won(U.dailyMin) + "이 적용됩니다.";
+      else note = "1일 평균임금 " + won(avgDaily) + "의 60%가 그대로 적용됩니다.";
+
+      document.getElementById("unemp-total").textContent = won(total);
+      document.getElementById("unemp-daily").textContent = won(daily);
+      document.getElementById("unemp-days").textContent = days + "일";
+      document.getElementById("unemp-monthly").textContent = won(daily * 30);
+      document.getElementById("unemp-avg").textContent = won(avgDaily);
+      document.getElementById("unemp-note").textContent = note;
+      document.getElementById("unemployment-result").classList.add("show");
+    });
+  }
+
+  // ── 7. 연차 계산기 (발생 일수 + 연차수당) ──
+  var leaveForm = document.getElementById("leave-form");
+  if (leaveForm) {
+    var baseInput = document.getElementById("leave-base");
+    if (baseInput && !baseInput.value) {
+      var t = new Date();
+      baseInput.value = t.getFullYear() + "-" + String(t.getMonth() + 1).padStart(2, "0") + "-" + String(t.getDate()).padStart(2, "0");
+    }
+
+    function fullMonthsBetween(a, b) {
+      var m = (b.getFullYear() - a.getFullYear()) * 12 + (b.getMonth() - a.getMonth());
+      if (b.getDate() < a.getDate()) m--;
+      return m;
+    }
+    function leaveForYears(y) {
+      var L = RATES.annualLeave;
+      return Math.min(L.base + Math.floor((y - 1) / 2), L.max);
+    }
+
+    leaveForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errEl = document.getElementById("leave-error");
+      clearError(errEl);
+
+      var startVal = document.getElementById("leave-start").value;
+      var baseVal = document.getElementById("leave-base").value;
+      var wage = parseNum(document.getElementById("leave-wage").value);
+      var unused = parseNum(document.getElementById("leave-unused").value);
+
+      var start = startVal ? new Date(startVal + "T00:00:00") : null;
+      var base = baseVal ? new Date(baseVal + "T00:00:00") : null;
+      if (!start || isNaN(start.getTime()) || !base || isNaN(base.getTime())) {
+        showError(errEl, "입사일과 기준일을 모두 선택해 주세요.");
+        return;
+      }
+      if (base <= start) {
+        showError(errEl, "기준일은 입사일보다 뒤여야 합니다.");
+        return;
+      }
+      if (!isNaN(wage) && wage < 0) wage = NaN;
+      if (isNaN(unused) || unused < 0) unused = 0;
+
+      var L = RATES.annualLeave;
+      var months = fullMonthsBetween(start, base);
+      var years = Math.floor(months / 12);
+      var current, basis;
+      if (years < 1) {
+        current = Math.min(months, L.firstYearMax);
+        basis = "입사 " + months + "개월 차 — 1개월 개근마다 1일 (1년 미만, 최대 " + L.firstYearMax + "일)";
+      } else {
+        current = leaveForYears(years);
+        basis = "근속 " + years + "년 차 — 기본 " + L.base + "일" + (current > L.base ? " + 가산 " + (current - L.base) + "일" : "") + " (1년간 80% 이상 출근 기준)";
+      }
+
+      var dailyWage = (!isNaN(wage) && wage > 0) ? wage / L.monthlyHours * L.dailyHours : 0;
+      var pay = dailyWage * unused;
+
+      document.getElementById("leave-current").textContent = current + "일";
+      document.getElementById("leave-basis").textContent = basis;
+      document.getElementById("leave-service").textContent = years + "년 " + (months - years * 12) + "개월";
+      document.getElementById("leave-daily-wage").textContent = dailyWage > 0 ? won(dailyWage) : "-";
+      document.getElementById("leave-pay").textContent = dailyWage > 0 ? won(pay) + " (" + unused + "일)" : "월 통상임금을 입력하면 계산됩니다";
+
+      var rows = "";
+      var last = Math.min(Math.max(years + 4, 7), 21);
+      for (var y = 1; y <= last; y++) {
+        var cls = (y === years) ? ' class="total"' : "";
+        rows += "<tr" + cls + "><td>" + y + "년 이상</td><td>" + leaveForYears(y) + "일</td></tr>";
+      }
+      document.getElementById("leave-schedule").innerHTML = rows;
+      document.getElementById("leave-result").classList.add("show");
+    });
+  }
+
+  // ── 8. 4대보험 계산기 (근로자·사업주 부담) ──
+  var insForm = document.getElementById("insurance-form");
+  if (insForm) {
+    insForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      var errEl = document.getElementById("ins-error");
+      clearError(errEl);
+
+      var wage = parseNum(document.getElementById("ins-wage").value);
+      var size = document.getElementById("ins-size").value;
+      var accRate = parseNum(document.getElementById("ins-accident").value);
+
+      if (!validatePositive(wage, "월 급여", errEl, 1000000000)) return;
+      if (isNaN(accRate) || accRate < 0 || accRate > 50) {
+        showError(errEl, "산재보험 요율은 0~50 사이 숫자(%)로 입력해 주세요.");
+        return;
+      }
+
+      var pensionBase = Math.min(Math.max(wage, RATES.pension.incomeMin), RATES.pension.incomeMax);
+      var pension = floorWon(pensionBase * RATES.pension.employeeRate);
+      var health = floorWon(wage * RATES.health.employeeRate);
+      var care = floorWon(health * (RATES.longTermCare.rateOfIncome / RATES.health.totalRate));
+      var emp = floorWon(wage * RATES.employment.employeeRate);
+      var stability = floorWon(wage * RATES.employer.employmentStability[size]);
+      var accident = floorWon(wage * accRate / 100);
+
+      var rows = [
+        ["국민연금 (4.75% + 4.75%)", pension, pension],
+        ["건강보험 (3.595% + 3.595%)", health, health],
+        ["장기요양보험 (건보료의 13.14%)", care, care],
+        ["고용보험 실업급여 (0.9% + 0.9%)", emp, emp],
+        ["고용안정·직업능력개발 (사업주만)", 0, stability],
+        ["산재보험 (사업주만, " + accRate + "%)", 0, accident]
+      ];
+      var eSum = 0, cSum = 0, html = "";
+      rows.forEach(function (r) {
+        eSum += r[1]; cSum += r[2];
+        html += "<tr><th>" + r[0] + "</th><td>" + (r[1] ? won(r[1]) : "-") + "</td><td>" + won(r[2]) + "</td><td>" + won(r[1] + r[2]) + "</td></tr>";
+      });
+      html += '<tr class="total"><th>합계</th><td>' + won(eSum) + "</td><td>" + won(cSum) + "</td><td>" + won(eSum + cSum) + "</td></tr>";
+      document.getElementById("ins-rows").innerHTML = html;
+      document.getElementById("ins-employee").textContent = won(eSum);
+      document.getElementById("ins-employer").textContent = won(cSum);
+      document.getElementById("ins-after").textContent = won(wage - eSum);
+      document.getElementById("ins-cost").textContent = won(wage + cSum);
+      document.getElementById("insurance-result").classList.add("show");
+    });
+  }
 })();

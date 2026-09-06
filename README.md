@@ -23,6 +23,9 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 ├── index.html        # 홈 (히어로 + 계산기 카드 + 인기 가이드)
 ├── salary.html       # 연봉 실수령액 계산기
 ├── salary-table.html # 2026 연봉 실수령액 표 (정적 표, 계산식은 calc.js와 동일)
+├── insurance.html    # 4대보험 계산기 (근로자·사업주 부담)
+├── unemployment.html # 실업급여(구직급여) 계산기
+├── annual-leave.html # 연차 계산기 (발생 일수·연차수당)
 ├── savings.html      # 적금 만기 계산기
 ├── deposit.html      # 예금 이자 계산기
 ├── loan.html         # 대출 상환 계산기
@@ -60,6 +63,8 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 | 고용보험 근로자 부담 | `RATES.employment.employeeRate` | 0.009 |
 | 이자소득세 | `RATES.interestTax.total` | 0.154 |
 | 소득세 세율표·공제 | `RATES.incomeTaxBrackets` 등 | 소득세법 개정 시 갱신 |
+| 구직급여 상·하한액 | `RATES.unemployment.dailyMax` / `dailyMin` | 68,100 / 66,048 (매년 1월 고시) |
+| 고용안정·산재 요율 | `RATES.employer` | 0.25~0.85% / 평균 1.47% |
 
 갱신 체크 시점:
 - 매년 1월: 국민연금 보험료율 (연금개혁으로 2033년까지 매년 0.5%p 인상 예정), 건강보험·장기요양·고용보험 요율, 소득세법 개정 여부

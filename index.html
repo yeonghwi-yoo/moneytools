@@ -3,15 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>얼마받지 - 연봉 실수령액·적금·예금·대출·퇴직금 계산기</title>
-<meta name="description" content="연봉 실수령액, 적금 만기, 예금 이자, 대출 상환, 퇴직금 계산기를 무료로 제공합니다. 2026년 4대보험 요율 반영, 회원가입 없이 바로 계산하세요.">
+<title>얼마받지 - 연봉 실수령액·4대보험·실업급여·적금·대출·퇴직금 계산기</title>
+<meta name="description" content="연봉 실수령액, 4대보험, 실업급여, 연차, 적금·예금 이자, 대출 상환, 퇴직금 계산기를 무료로 제공합니다. 2026년 4대보험 요율 반영, 회원가입 없이 바로 계산하세요.">
 <link rel="canonical" href="https://money-tools.org/">
 <meta property="og:site_name" content="얼마받지">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://money-tools.org/">
-<meta property="og:title" content="얼마받지 - 연봉 실수령액·적금·예금·대출·퇴직금 계산기">
-<meta property="og:description" content="연봉 실수령액, 적금 만기, 예금 이자, 대출 상환, 퇴직금 계산기를 무료로 제공합니다. 2026년 4대보험 요율 반영, 회원가입 없이 바로 계산하세요.">
+<meta property="og:title" content="얼마받지 - 연봉 실수령액·4대보험·실업급여·적금·대출·퇴직금 계산기">
+<meta property="og:description" content="연봉 실수령액, 4대보험, 실업급여, 연차, 적금·예금 이자, 대출 상환, 퇴직금 계산기를 무료로 제공합니다. 2026년 4대보험 요율 반영, 회원가입 없이 바로 계산하세요.">
 <meta name="twitter:card" content="summary">
 <!-- 구글 서치콘솔 소유확인 (발급 후 주석 해제)
 <meta name="google-site-verification" content="XXXXXXXXXX">
@@ -22,7 +22,7 @@
 -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231b5fd9'/><text x='50' y='72' font-size='58' font-weight='bold' text-anchor='middle' fill='white' font-family='sans-serif'>%E2%82%A9</text></svg>">
 <link rel="stylesheet" href="assets/style.css">
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"얼마받지","alternateName":"money-tools.org","url":"https://money-tools.org/","description":"연봉 실수령액, 적금 만기, 예금 이자, 대출 상환, 퇴직금 계산기를 무료로 제공합니다. 2026년 4대보험 요율 반영, 회원가입 없이 바로 계산하세요.","inLanguage":"ko","publisher":{"@type":"Organization","name":"얼마받지","url":"https://money-tools.org/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"얼마받지","alternateName":"money-tools.org","url":"https://money-tools.org/","description":"연봉 실수령액, 4대보험, 실업급여, 연차, 적금·예금 이자, 대출 상환, 퇴직금 계산기를 무료로 제공합니다. 2026년 4대보험 요율 반영, 회원가입 없이 바로 계산하세요.","inLanguage":"ko","publisher":{"@type":"Organization","name":"얼마받지","url":"https://money-tools.org/"}}</script>
 </head>
 <body>
 
@@ -31,6 +31,9 @@
     <a href="index.html" class="logo">얼마받지</a>
     <nav class="site-nav">
       <a href="salary.html">연봉 실수령액</a>
+      <a href="insurance.html">4대보험</a>
+      <a href="unemployment.html">실업급여</a>
+      <a href="annual-leave.html">연차</a>
       <a href="savings.html">적금</a>
       <a href="deposit.html">예금</a>
       <a href="loan.html">대출</a>
@@ -60,6 +63,21 @@
       <div class="card-icon">💼</div>
       <div class="card-title">연봉 실수령액 계산기</div>
       <div class="card-desc">연봉·월급에서 4대보험과 소득세를 뺀 실제 수령액을 계산합니다. 부양가족 수 반영. 2026 연봉별 실수령액 표 제공.</div>
+    </a>
+    <a class="card" href="insurance.html">
+      <div class="card-icon">🛡️</div>
+      <div class="card-title">4대보험 계산기</div>
+      <div class="card-desc">국민연금·건강·장기요양·고용·산재보험을 근로자 부담과 사업주 부담으로 나눠 계산합니다. 2026 요율.</div>
+    </a>
+    <a class="card" href="unemployment.html">
+      <div class="card-icon">🧾</div>
+      <div class="card-title">실업급여 계산기</div>
+      <div class="card-desc">퇴직 전 월급·나이·가입기간으로 구직급여 1일 금액, 수급일수, 총 수령액을 계산합니다. 2026 상·하한액 반영.</div>
+    </a>
+    <a class="card" href="annual-leave.html">
+      <div class="card-icon">🏖️</div>
+      <div class="card-title">연차 계산기</div>
+      <div class="card-desc">입사일 기준 연차 발생 일수와 미사용 연차수당을 근로기준법 제60조에 따라 계산합니다.</div>
     </a>
     <a class="card" href="savings.html">
       <div class="card-icon">🐷</div>
@@ -151,6 +169,9 @@
         <div class="f-head">계산기</div>
         <a href="salary.html">연봉 실수령액 계산기</a>
         <a href="salary-table.html">2026 연봉 실수령액 표</a>
+        <a href="insurance.html">4대보험 계산기</a>
+        <a href="unemployment.html">실업급여 계산기</a>
+        <a href="annual-leave.html">연차 계산기</a>
         <a href="savings.html">적금 만기 계산기</a>
         <a href="deposit.html">예금 이자 계산기</a>
         <a href="loan.html">대출 상환 계산기</a>

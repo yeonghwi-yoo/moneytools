@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>연차 계산기 - 입사일 기준 연차 발생 일수·미사용 연차수당 계산 | 얼마받지</title>
+<meta name="description" content="입사일과 기준일을 넣으면 근로기준법 제60조에 따른 연차 발생 일수(1년 미만 월 1일, 1년 이상 15일, 최대 25일)를 계산하고, 월 통상임금으로 미사용 연차수당까지 계산합니다.">
+<link rel="canonical" href="https://money-tools.org/annual-leave.html">
+<meta property="og:site_name" content="얼마받지">
+<meta property="og:locale" content="ko_KR">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://money-tools.org/annual-leave.html">
+<meta property="og:title" content="연차 계산기 - 입사일 기준 연차 발생 일수·미사용 연차수당 계산 | 얼마받지">
+<meta property="og:description" content="입사일과 기준일을 넣으면 근로기준법 제60조에 따른 연차 발생 일수(1년 미만 월 1일, 1년 이상 15일, 최대 25일)를 계산하고, 월 통상임금으로 미사용 연차수당까지 계산합니다.">
+<meta name="twitter:card" content="summary">
+<!-- 구글 서치콘솔 소유확인 (발급 후 주석 해제)
+<meta name="google-site-verification" content="XXXXXXXXXX">
+-->
+<meta name="naver-site-verification" content="bcf4da6f3dc041c79086941071dad25bf4296cbb">
+<!-- 구글 애드센스 (승인 후 주석 해제)
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+-->
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231b5fd9'/><text x='50' y='72' font-size='58' font-weight='bold' text-anchor='middle' fill='white' font-family='sans-serif'>%E2%82%A9</text></svg>">
+<link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"연차 계산기 (연차 발생 일수·연차수당)","url":"https://money-tools.org/annual-leave.html","description":"입사일과 기준일을 넣으면 근로기준법 제60조에 따른 연차 발생 일수(1년 미만 월 1일, 1년 이상 15일, 최대 25일)를 계산하고, 월 통상임금으로 미사용 연차수당까지 계산합니다.","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@type":"Organization","name":"얼마받지","url":"https://money-tools.org/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://money-tools.org/"},{"@type":"ListItem","position":2,"name":"연차 계산기","item":"https://money-tools.org/annual-leave.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"입사 1년이 되면 11일과 15일을 합쳐 26일이 되나요?","acceptedAnswer":{"@type":"Answer","text":"1년 미만 기간에 생긴 최대 11일은 입사 1년이 되는 날 소멸하고, 그날 15일이 새로 생깁니다. 그래서 1년 차에 한꺼번에 26일을 쓸 수 있는 게 아니라, 첫해에 11일을 쓰고 둘째 해에 15일을 쓰는 구조입니다. 다만 첫해 연차를 못 썼고 회사가 사용 촉진을 하지 않았다면 미사용분은 수당으로 받습니다."}},{"@type":"Question","name":"5인 미만 사업장인데 연차가 없다고 합니다.","acceptedAnswer":{"@type":"Answer","text":"근로기준법 제60조는 상시 근로자 5인 이상 사업장에 적용되므로, 5인 미만 사업장은 법정 연차 의무가 없는 것이 맞습니다. 다만 근로계약서나 취업규칙에 연차를 주기로 정했다면 그에 따라야 합니다."}},{"@type":"Question","name":"계약직 1년을 딱 채우고 퇴직하면 15일 연차수당을 받나요?","acceptedAnswer":{"@type":"Answer","text":"2021년 대법원 판례 이후 행정해석이 바뀌어, 딱 1년(365일) 근무하고 퇴직하면 1년 미만 기간의 11일만 인정되고 15일은 발생하지 않습니다. 15일이 발생하려면 1년을 초과해 366일째에도 근로관계가 있어야 합니다. 하루 차이로 15일치 수당이 갈리므로 계약 종료일을 확인하세요."}}]}</script>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href="index.html" class="logo">얼마받지</a>
+    <nav class="site-nav">
+      <a href="salary.html">연봉 실수령액</a>
+      <a href="insurance.html">4대보험</a>
+      <a href="unemployment.html">실업급여</a>
+      <a href="annual-leave.html" class="active">연차</a>
+      <a href="savings.html">적금</a>
+      <a href="deposit.html">예금</a>
+      <a href="loan.html">대출</a>
+      <a href="severance.html">퇴직금</a>
+      <a href="hourly.html">시급</a>
+      <a href="goal.html">저축목표</a>
+      <a href="guides.html">가이드</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <h1>연차 계산기 (연차 발생 일수·연차수당)</h1>
+  <p class="page-desc">입사일과 기준일을 넣으면 근로기준법 제60조에 따라 지금 쓸 수 있는 연차 일수를 계산하고, 월 통상임금을 넣으면 미사용 연차수당까지 계산합니다.</p>
+
+  <form id="leave-form" class="calc-box" novalidate>
+    <div class="field-row">
+      <div class="field">
+        <label for="leave-start">입사일</label>
+        <input type="date" id="leave-start">
+      </div>
+      <div class="field">
+        <label for="leave-base">기준일</label>
+        <input type="date" id="leave-base">
+        <span class="hint">비워 두면 오늘 날짜로 계산합니다.</span>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field">
+        <label for="leave-wage">월 통상임금 (원, 선택)</label>
+        <input type="text" id="leave-wage" data-comma inputmode="numeric" placeholder="예: 3,000,000" autocomplete="off">
+        <span class="hint">기본급 + 고정 수당. 연차수당 계산에만 쓰입니다.</span>
+      </div>
+      <div class="field">
+        <label for="leave-unused">미사용 연차 (일, 선택)</label>
+        <input type="number" id="leave-unused" min="0" max="50" step="0.5" placeholder="예: 5">
+      </div>
+    </div>
+    <button type="submit" class="btn">연차 계산하기</button>
+    <p class="error-msg" id="leave-error"></p>
+  </form>
+
+  <div class="result-box" id="leave-result">
+    <div class="result-main">
+      <div class="label">현재 발생 연차</div>
+      <div class="value" id="leave-current">-</div>
+      <div class="hint" id="leave-basis"></div>
+    </div>
+    <table class="result-table">
+      <tr><th>근속 기간</th><td id="leave-service">-</td></tr>
+      <tr><th>1일 통상임금 (월급 ÷ 209 × 8)</th><td id="leave-daily-wage">-</td></tr>
+      <tr class="total"><th>미사용 연차수당</th><td id="leave-pay">-</td></tr>
+    </table>
+    <div class="table-scroll" style="padding: 0 14px 14px;">
+    <table class="data-table" style="min-width:0;">
+      <thead><tr><th>근속연수</th><th>연 발생 연차</th></tr></thead>
+      <tbody id="leave-schedule"></tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- AD SLOT -->
+
+  <section class="article-section">
+    <h2>연차는 어떻게 생기나요?</h2>
+    <p>연차유급휴가는 근로기준법 제60조가 정한 법정 휴가로, 5인 이상 사업장의 근로자에게 적용됩니다. 발생 규칙은 세 단계입니다.</p>
+    <ul>
+      <li><strong>입사 1년 미만</strong>: 1개월을 개근할 때마다 1일씩 생깁니다. 11개월 개근하면 최대 11일입니다. 이 연차는 입사 1년이 되는 날 소멸하므로 그 전에 써야 합니다.</li>
+      <li><strong>입사 1년 이상</strong>: 지난 1년간 80% 이상 출근했으면 15일이 한꺼번에 생깁니다. 출근율이 80% 미만이면 개근한 달마다 1일만 생깁니다.</li>
+      <li><strong>3년 이상 근속</strong>: 최초 1년을 초과한 근속 매 2년마다 1일씩 늘어나 3년 차 16일, 5년 차 17일, 7년 차 18일 … 21년 차에 상한인 25일에 도달합니다.</li>
+    </ul>
+    <p>이 계산기는 <strong>입사일 기준</strong>으로 계산합니다. 회사가 회계연도(1월 1일) 기준으로 연차를 관리하면 입사 첫해에는 재직일수에 비례해서 연차를 주고 이듬해부터 15일을 주는 방식이 일반적이라, 결과가 조금 다를 수 있습니다. 다만 퇴직 시점에는 입사일 기준으로 계산한 연차보다 적게 주면 안 되므로, 입사일 기준이 근로자에게 보장되는 최소 기준입니다.</p>
+
+    <h2>연차수당 계산 방법</h2>
+    <p>쓰지 못한 연차는 <strong>미사용 연차수당</strong>으로 받습니다. 1일 수당은 1일 통상임금이고, 통상임금은 기본급과 정기적·일률적으로 지급되는 고정 수당(직책수당, 식대 등)을 합한 금액입니다. 주 40시간 근무자의 월 통상임금 근로시간은 209시간이므로 다음과 같이 계산합니다.</p>
+    <div class="tip-box"><strong>1일 통상임금</strong> = 월 통상임금 ÷ 209시간 × 8시간 → 월 300만원이면 114,833원. 미사용 연차 5일이면 연차수당 574,163원.</div>
+    <p>회사가 연차 사용 촉진 절차(사용 시기 지정 요청 → 미지정 시 회사가 시기 지정, 서면 통보)를 법대로 이행했다면 미사용 연차에 대해 수당을 지급하지 않아도 됩니다. 반대로 촉진 절차 없이 연차를 못 쓰게 했다면 수당을 청구할 수 있고, 퇴직 시에는 남은 연차 전부를 수당으로 정산받습니다.</p>
+
+    <h2>자주 묻는 질문</h2>
+    <div class="faq-item">
+      <p class="q">Q. 입사 1년이 되면 11일과 15일을 합쳐 26일이 되나요?</p>
+      <p class="a">A. 1년 미만 기간에 생긴 최대 11일은 입사 1년이 되는 날 소멸하고, 그날 15일이 새로 생깁니다. 그래서 1년 차에 한꺼번에 26일을 쓸 수 있는 게 아니라, 첫해에 11일을 쓰고 둘째 해에 15일을 쓰는 구조입니다. 다만 첫해 연차를 못 썼고 회사가 사용 촉진을 하지 않았다면 미사용분은 수당으로 받습니다.</p>
+    </div>
+    <div class="faq-item">
+      <p class="q">Q. 5인 미만 사업장인데 연차가 없다고 합니다.</p>
+      <p class="a">A. 근로기준법 제60조는 상시 근로자 5인 이상 사업장에 적용되므로, 5인 미만 사업장은 법정 연차 의무가 없는 것이 맞습니다. 다만 근로계약서나 취업규칙에 연차를 주기로 정했다면 그에 따라야 합니다.</p>
+    </div>
+    <div class="faq-item">
+      <p class="q">Q. 계약직 1년을 딱 채우고 퇴직하면 15일 연차수당을 받나요?</p>
+      <p class="a">A. 2021년 대법원 판례 이후 행정해석이 바뀌어, 딱 1년(365일) 근무하고 퇴직하면 1년 미만 기간의 11일만 인정되고 15일은 발생하지 않습니다. 15일이 발생하려면 1년을 초과해 366일째에도 근로관계가 있어야 합니다. 하루 차이로 15일치 수당이 갈리므로 계약 종료일을 확인하세요.</p>
+    </div>
+
+    <p class="notice">본 계산기는 근로기준법 제60조를 입사일 기준으로 적용하고 매월·매년 출근율 요건(개근, 80% 이상)을 충족했다고 가정한 참고용 결과입니다. 회계연도 기준 관리, 육아휴직·휴업 기간, 단시간 근로자의 비례 계산 등에 따라 실제 연차는 달라질 수 있으며, 본 결과는 법률·노무 자문이 아닙니다. 기준일: 2026-09-06.</p>
+  </section>
+
+  <div class="related-box">
+      <div class="rel-title">함께 보면 좋은 도구·글</div>
+      <ul>
+        <li><a href="severance.html">퇴직금 계산기 (연차수당은 평균임금에 포함)</a></li>
+        <li><a href="hourly.html">시급 계산기 (주휴수당·209시간)</a></li>
+        <li><a href="unemployment.html">실업급여 계산기</a></li>
+        <li><a href="salary.html">연봉 실수령액 계산기</a></li>
+      </ul>
+    </div>
+
+  <!-- AD SLOT -->
+</main>
+
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="f-head">계산기</div>
+        <a href="salary.html">연봉 실수령액 계산기</a>
+        <a href="salary-table.html">2026 연봉 실수령액 표</a>
+        <a href="insurance.html">4대보험 계산기</a>
+        <a href="unemployment.html">실업급여 계산기</a>
+        <a href="annual-leave.html">연차 계산기</a>
+        <a href="savings.html">적금 만기 계산기</a>
+        <a href="deposit.html">예금 이자 계산기</a>
+        <a href="loan.html">대출 상환 계산기</a>
+        <a href="severance.html">퇴직금 계산기</a>
+        <a href="hourly.html">시급 계산기</a>
+        <a href="goal.html">목표 저축 역산기</a>
+      </div>
+      <div class="footer-col">
+        <div class="f-head">인기 가이드</div>
+        <a href="guide-insurance-rates-2026.html">2026 4대보험 요율 총정리</a>
+        <a href="guide-savings-vs-deposit.html">적금 vs 예금 비교</a>
+        <a href="guide-loan-repayment.html">대출 상환 방식 3가지</a>
+        <a href="guide-salary-tax.html">근로소득세 이해하기</a>
+        <a href="guide-year-end-tax.html">연말정산 기초 정리</a>
+      </div>
+      <div class="footer-col">
+        <div class="f-head">얼마받지</div>
+        <a href="guides.html">가이드 전체 보기</a>
+        <a href="about.html">소개</a>
+        <a href="privacy.html">개인정보처리방침</a>
+      </div>
+    </div>
+    <p class="footer-disclaimer">얼마받지의 모든 계산 결과는 참고용 근사치이며, 금융·세무·법률 자문이 아닙니다. 실제 금액은 관련 기관과 금융회사의 산정 결과를 따르며, 이용에 따른 판단과 책임은 이용자 본인에게 있습니다.</p>
+    <p class="footer-copy">© 2026 얼마받지</p>
+  </div>
+</footer>
+
+<script src="assets/rates.js"></script>
+<script src="assets/calc.js"></script>
+</body>
+</html>
