@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>연봉 실수령액 계산기 (2026년 4대보험 요율 반영) - 얼마받지</title>
+<title>연봉 실수령액 계산기 2026 - 월급 세후 실수령액 계산 (4대보험·소득세 반영) | 얼마받지</title>
 <meta name="description" content="2026년 국민연금 9.5%, 건강보험 7.19% 등 최신 4대보험 요율을 반영한 연봉·월급 실수령액 계산기. 부양가족 수에 따른 소득세 근사치까지 계산합니다.">
 <link rel="canonical" href="https://money-tools.org/salary.html">
 <meta property="og:site_name" content="얼마받지">
 <meta property="og:locale" content="ko_KR">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://money-tools.org/salary.html">
-<meta property="og:title" content="연봉 실수령액 계산기 (2026년 4대보험 요율 반영) - 얼마받지">
+<meta property="og:title" content="연봉 실수령액 계산기 2026 - 월급 세후 실수령액 계산 (4대보험·소득세 반영) | 얼마받지">
 <meta property="og:description" content="2026년 국민연금 9.5%, 건강보험 7.19% 등 최신 4대보험 요율을 반영한 연봉·월급 실수령액 계산기. 부양가족 수에 따른 소득세 근사치까지 계산합니다.">
 <meta name="twitter:card" content="summary">
 <!-- 구글 서치콘솔 소유확인 (발급 후 주석 해제)
@@ -24,6 +24,9 @@
 -->
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%231b5fd9'/><text x='50' y='72' font-size='58' font-weight='bold' text-anchor='middle' fill='white' font-family='sans-serif'>%E2%82%A9</text></svg>">
 <link rel="stylesheet" href="assets/style.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebApplication","name":"연봉 실수령액 계산기 (2026)","url":"https://money-tools.org/salary.html","description":"2026년 국민연금 9.5%, 건강보험 7.19% 등 최신 4대보험 요율을 반영한 연봉·월급 실수령액 계산기. 부양가족 수에 따른 소득세 근사치까지 계산합니다.","applicationCategory":"FinanceApplication","operatingSystem":"All","browserRequirements":"Requires JavaScript","inLanguage":"ko","isAccessibleForFree":true,"offers":{"@type":"Offer","price":"0","priceCurrency":"KRW"},"publisher":{"@type":"Organization","name":"얼마받지","url":"https://money-tools.org/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"홈","item":"https://money-tools.org/"},{"@type":"ListItem","position":2,"name":"연봉 실수령액 계산기","item":"https://money-tools.org/salary.html"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"계산 결과가 실제 급여명세서와 조금 다른데 왜 그런가요?","acceptedAnswer":{"@type":"Answer","text":"소득세는 국세청 간이세액표 기준 근사치이기 때문입니다. 간이세액표는 급여 구간별로 정해진 표를 사용하고, 회사마다 비과세 수당(식대, 차량유지비 등)과 공제 항목이 달라 실제 공제액과 차이가 날 수 있습니다. 4대보험도 보수월액 산정 방식과 정산에 따라 달라질 수 있습니다."}},{"@type":"Question","name":"부양가족 수를 늘리면 왜 실수령액이 늘어나나요?","acceptedAnswer":{"@type":"Answer","text":"기본공제 대상 가족이 1명 늘 때마다 연 150만원의 인적공제가 추가되어 과세표준이 낮아지고, 그만큼 매달 떼는 소득세가 줄어들기 때문입니다. 다만 연말정산에서 실제 공제 요건을 충족해야 최종 세액이 확정됩니다."}},{"@type":"Question","name":"2026년에 국민연금 보험료가 오른 게 맞나요?","acceptedAnswer":{"@type":"Answer","text":"네. 2025년 통과된 국민연금법 개정(연금개혁)에 따라 2026년 1월부터 전체 보험료율이 9%에서 9.5%로 올랐고, 2033년 13%까지 매년 0.5%p씩 단계적으로 인상됩니다. 근로자와 회사가 절반씩 부담하므로 근로자 몫은 4.75%입니다."}}]}</script>
 </head>
 <body>
 
@@ -44,7 +47,7 @@
 </header>
 
 <main class="container">
-  <h1>연봉 실수령액 계산기</h1>
+  <h1>연봉 실수령액 계산기 (2026)</h1>
   <p class="page-desc">세전 연봉 또는 월급을 입력하면 4대보험(근로자 부담분)과 근로소득세·지방소득세를 뺀 월 실수령액을 계산합니다. 2026년 요율 기준.</p>
 
   <form id="salary-form" class="calc-box" novalidate>
@@ -90,6 +93,26 @@
   <!-- AD SLOT -->
 
   <section class="article-section">
+    <h2>연봉별 실수령액 표 (2026년, 부양가족 1인 기준)</h2>
+    <p>많이 찾는 연봉 구간의 월 실수령액을 미리 계산해 두었습니다. "공제 합계"는 4대보험 근로자 부담분과 근로소득세·지방소득세를 더한 금액입니다. 2,000만원부터 2억원까지 100만원 단위 전체 표는 <a href="salary-table.html">2026 연봉 실수령액 표</a>에서 볼 수 있습니다.</p>
+    <div class="table-scroll">
+    <table class="data-table">
+      <thead><tr><th>연봉</th><th>월 세전 급여</th><th>공제 합계</th><th>월 실수령액</th></tr></thead>
+      <tbody>
+<tr><td><a href="salary-table.html#y2500">2,500만원</a></td><td>2,083,333</td><td>232,317</td><td class="net">1,851,016</td></tr>
+<tr><td><a href="salary-table.html#y3000">3,000만원</a></td><td>2,500,000</td><td>288,936</td><td class="net">2,211,064</td></tr>
+<tr><td><a href="salary-table.html#y3500">3,500만원</a></td><td>2,916,667</td><td>371,040</td><td class="net">2,545,627</td></tr>
+<tr><td><a href="salary-table.html#y4000">4,000만원</a></td><td>3,333,333</td><td>466,953</td><td class="net">2,866,380</td></tr>
+<tr><td><a href="salary-table.html#y4500">4,500만원</a></td><td>3,750,000</td><td>561,398</td><td class="net">3,188,602</td></tr>
+<tr><td><a href="salary-table.html#y5000">5,000만원</a></td><td>4,166,667</td><td>660,519</td><td class="net">3,506,148</td></tr>
+<tr><td><a href="salary-table.html#y6000">6,000만원</a></td><td>5,000,000</td><td>858,762</td><td class="net">4,141,238</td></tr>
+<tr><td><a href="salary-table.html#y7000">7,000만원</a></td><td>5,833,333</td><td>1,057,003</td><td class="net">4,776,330</td></tr>
+<tr><td><a href="salary-table.html#y8000">8,000만원</a></td><td>6,666,667</td><td>1,324,785</td><td class="net">5,341,882</td></tr>
+<tr><td><a href="salary-table.html#y10000">1억원</a></td><td>8,333,333</td><td>1,803,717</td><td class="net">6,529,616</td></tr>
+      </tbody>
+    </table>
+    </div>
+
     <h2>실수령액은 어떻게 계산되나요?</h2>
     <p>회사와 계약한 연봉과 실제 통장에 들어오는 금액이 다른 이유는, 매달 급여에서 4대보험료와 세금이 원천공제되기 때문입니다. 이 계산기는 세전 급여에서 다음 항목을 차례로 빼서 실수령액을 구합니다.</p>
     <ul>
@@ -128,6 +151,7 @@
   <div class="related-box">
       <div class="rel-title">함께 보면 좋은 가이드</div>
       <ul>
+        <li><a href="salary-table.html">2026 연봉 실수령액 표 (2,000만~2억원)</a></li>
         <li><a href="guide-insurance-rates-2026.html">2026년 4대보험 요율 총정리</a></li>
         <li><a href="guide-salary-tax.html">근로소득세와 간이세액표 이해하기</a></li>
         <li><a href="guide-pension-reform-2026.html">2026년 국민연금 개혁 정리</a></li>
@@ -144,6 +168,7 @@
       <div class="footer-col">
         <div class="f-head">계산기</div>
         <a href="salary.html">연봉 실수령액 계산기</a>
+        <a href="salary-table.html">2026 연봉 실수령액 표</a>
         <a href="savings.html">적금 만기 계산기</a>
         <a href="deposit.html">예금 이자 계산기</a>
         <a href="loan.html">대출 상환 계산기</a>

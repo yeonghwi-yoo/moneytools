@@ -22,6 +22,7 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 /
 ├── index.html        # 홈 (히어로 + 계산기 카드 + 인기 가이드)
 ├── salary.html       # 연봉 실수령액 계산기
+├── salary-table.html # 2026 연봉 실수령액 표 (정적 표, 계산식은 calc.js와 동일)
 ├── savings.html      # 적금 만기 계산기
 ├── deposit.html      # 예금 이자 계산기
 ├── loan.html         # 대출 상환 계산기
@@ -29,7 +30,7 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 ├── hourly.html       # 시급 계산기 (주휴수당·최저임금)
 ├── goal.html         # 목표 저축 역산기
 ├── guides.html       # 금융 가이드 목록
-├── guide-*.html      # 가이드 글 11편 (4대보험/세금/저축/대출/퇴직/재테크)
+├── guide-*.html      # 가이드 글 (4대보험/세금/저축/대출/퇴직/재테크, 주 2~3회 추가)
 ├── about.html        # 소개
 ├── privacy.html      # 개인정보처리방침
 ├── 404.html          # 404 (스타일 인라인)
@@ -64,6 +65,12 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 - 매년 1월: 국민연금 보험료율 (연금개혁으로 2033년까지 매년 0.5%p 인상 예정), 건강보험·장기요양·고용보험 요율, 소득세법 개정 여부
 - 매년 7월: 국민연금 기준소득월액 상·하한
 - 갱신 후 각 계산기 페이지 하단 `notice`의 기준일 문구와 `rates.js`의 `baseDate`도 함께 수정
+- `salary-table.html`·`salary.html`의 연봉별 표와 `hourly.html`의 시급별 표는 정적 HTML이므로, 요율 변경 시 같은 산식으로 다시 생성해 교체
+
+## SEO 구조
+
+- 모든 색인 페이지에 canonical, Open Graph, JSON-LD(계산기 `WebApplication`, 가이드 `Article`, FAQ `FAQPage`, `BreadcrumbList`) 포함
+- 가이드 추가 시 `article-meta`의 날짜가 JSON-LD `datePublished`와 일치해야 함
 
 ## 애드센스 신청 절차 체크리스트
 

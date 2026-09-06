@@ -443,3 +443,11 @@ h3 { font-size: 1.02rem; margin: 24px 0 8px; }
 }
 
 .footer-col a:hover { color: var(--blue); text-decoration: underline; }
+
+/* 연봉 실수령액 표 */
+.data-table td.net { font-weight: 700; color: var(--blue-dark); }
+.data-table td a { color: inherit; text-decoration: none; }
+.data-table td a:hover { text-decoration: underline; }
+.data-table tr:target td { background: var(--blue-light); }
+.data-table thead th { position: sticky; top: 0; z-index: 1; }
+.tip-box a { color: var(--blue-dark); }
