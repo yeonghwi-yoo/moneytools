@@ -1,0 +1,4 @@
+Contact: mailto:contact@money-tools.org
+Expires: 2027-09-06T00:00:00.000Z
+Preferred-Languages: ko, en
+Canonical: https://money-tools.org/.well-known/security.txt
