@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>얼마받지 — 금융 가이드</title>
+    <link>https://money-tools.org/guides.html</link>
+    <description>연봉 실수령액·4대보험·실업급여·적금·대출 등 금융 계산기와 함께 보는 금융 가이드. 2026년 요율·제도 기준.</description>
+    <language>ko</language>
+    <atom:link href="https://money-tools.org/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Mon, 07 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <item>
+      <title>청년미래적금 조건 총정리 2026 — 월 50만원·3년, 정부기여금 6~12%와 비과세</title>
+      <link>https://money-tools.org/guide-youth-future-savings.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-youth-future-savings.html</guid>
+      <category>저축</category>
+      <pubDate>Mon, 07 Sep 2026 07:30:00 +0900</pubDate>
+      <description>2026년 6월 출시된 청년미래적금의 가입 조건(만 19~34세, 일반형·우대형 소득 기준), 정부기여금 6%·12%, 연 5% 고정금리와 비과세, 만기 수령액 계산, 청년도약계좌와의 차이, 12월 2차 신청 일정까지 정리합니다.</description>
+    </item>
+    <item>
+      <title>ISA 계좌 총정리 2026 — 비과세 한도 1,000만원 시대, 누가 얼마나 아낄까</title>
+      <link>https://money-tools.org/guide-isa-account.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-isa-account.html</guid>
+      <category>세금</category>
+      <pubDate>Fri, 04 Sep 2026 07:30:00 +0900</pubDate>
+      <description>2026년 ISA 개편으로 납입한도 연 4,000만원, 비과세 한도 일반형 500만·서민형 1,000만원으로 늘었습니다. 유형별 자격, 세금 계산 예시, 손익통산, 만기 후 연금계좌 이체 혜택까지 정리합니다.</description>
+    </item>
+    <item>
+      <title>대출 중도상환, 언제 갚아야 이득일까 — 2025 수수료 개편 후 전략</title>
+      <link>https://money-tools.org/guide-prepayment-strategy.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-prepayment-strategy.html</guid>
+      <category>대출</category>
+      <pubDate>Thu, 03 Sep 2026 07:30:00 +0900</pubDate>
+      <description>2025년 1월부터 중도상환수수료가 절반 이하로 내렸습니다. 수수료 계산법, 3년 면제 규칙, 3억 주담대 5천만원 중도상환 시 이자 9천만원 절감 예시, 예·적금보다 대출 상환이 유리한 조건을 정리합니다.</description>
+    </item>
+    <item>
+      <title>연금저축·IRP 세액공제 총정리 — 한도 900만원, 최대 148만원 환급</title>
+      <link>https://money-tools.org/guide-pension-savings-irp.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-pension-savings-irp.html</guid>
+      <category>세금</category>
+      <pubDate>Mon, 31 Aug 2026 07:30:00 +0900</pubDate>
+      <description>직장인 절세의 기본, 연금저축과 IRP 세액공제를 정리합니다. 한도 900만원(연금저축 600만원), 공제율 16.5%/13.2%, 납입 전략과 중도해지 주의사항까지.</description>
+    </item>
+    <item>
+      <title>2026년 4대보험 요율 총정리 — 월급에서 얼마나 떼일까</title>
+      <link>https://money-tools.org/guide-insurance-rates-2026.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-insurance-rates-2026.html</guid>
+      <category>4대보험</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>2026년 국민연금 9.5%, 건강보험 7.19%, 장기요양 0.9448%, 고용보험 1.8%까지 4대보험 요율과 근로자 부담분을 표로 정리하고 월급 300만원 기준 공제액을 계산해 봅니다.</description>
+    </item>
+    <item>
+      <title>월급에서 세금은 어떻게 떼일까 — 근로소득세와 간이세액표 이해하기</title>
+      <link>https://money-tools.org/guide-salary-tax.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-salary-tax.html</guid>
+      <category>세금</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>매달 월급에서 빠지는 근로소득세가 어떻게 계산되는지, 간이세액표와 연말정산의 관계, 부양가족 수가 세금에 미치는 영향을 쉽게 설명합니다.</description>
+    </item>
+    <item>
+      <title>2026년 국민연금 개혁 정리 — 보험료율 9.5% 인상, 내 월급 영향은</title>
+      <link>https://money-tools.org/guide-pension-reform-2026.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-pension-reform-2026.html</guid>
+      <category>4대보험</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>2025년 국회를 통과한 국민연금 개혁으로 2026년 1월부터 보험료율이 9.5%로 올랐습니다. 2033년 13%까지의 인상 로드맵, 소득대체율 43%, 월급별 추가 부담액을 정리합니다.</description>
+    </item>
+    <item>
+      <title>적금 vs 예금, 뭐가 더 유리할까 — 같은 금리라도 이자가 다른 이유</title>
+      <link>https://money-tools.org/guide-savings-vs-deposit.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-savings-vs-deposit.html</guid>
+      <category>저축</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>연 4% 적금과 연 3% 예금 중 뭐가 유리할까? 적금 이자가 표시 금리의 절반 수준인 이유, 목돈 유무에 따른 선택 기준, 세후 이자 비교 방법을 설명합니다.</description>
+    </item>
+    <item>
+      <title>이자소득세 15.4% 완전 정리 — 세후 이자 계산법과 절세 방법</title>
+      <link>https://money-tools.org/guide-interest-tax.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-interest-tax.html</guid>
+      <category>세금</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>예금·적금 이자에서 떼는 이자소득세 15.4%의 구성(소득세 14% + 지방소득세 1.4%), 세후 이자 계산법, 비과세·세금우대 상품과 금융소득종합과세 기준을 정리합니다.</description>
+    </item>
+    <item>
+      <title>대출 상환 방식 3가지 비교 — 원리금균등·원금균등·만기일시 선택 가이드</title>
+      <link>https://money-tools.org/guide-loan-repayment.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-loan-repayment.html</guid>
+      <category>대출</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>같은 돈을 빌려도 상환 방식에 따라 총 이자가 크게 달라집니다. 원리금균등·원금균등·만기일시상환의 구조와 3억원 대출 기준 총 이자 비교, 상황별 선택 기준을 정리합니다.</description>
+    </item>
+    <item>
+      <title>DSR·LTV·DTI 뜻 총정리 — 내 대출 한도가 정해지는 원리</title>
+      <link>https://money-tools.org/guide-dsr-ltv-dti.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-dsr-ltv-dti.html</guid>
+      <category>대출</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>대출 기사마다 나오는 DSR, LTV, DTI가 무슨 뜻인지, 각각 어떻게 계산되고 내 대출 한도에 어떤 영향을 주는지 예시와 함께 쉽게 정리합니다.</description>
+    </item>
+    <item>
+      <title>퇴직금 세금(퇴직소득세) 이해하기 — 얼마나 떼고 받을까</title>
+      <link>https://money-tools.org/guide-severance-tax.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-severance-tax.html</guid>
+      <category>퇴직</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>퇴직금에 붙는 퇴직소득세의 계산 구조를 설명합니다. 근속연수공제, 환산급여, 왜 오래 다닐수록 세금이 적어지는지, IRP로 받으면 달라지는 점까지 정리합니다.</description>
+    </item>
+    <item>
+      <title>사회초년생 첫 월급 관리 가이드 — 통장 쪼개기부터 비상금까지</title>
+      <link>https://money-tools.org/guide-first-salary.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-first-salary.html</guid>
+      <category>재테크</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>첫 월급을 받은 사회초년생을 위한 돈 관리 기본기. 통장 쪼개기, 선저축 후지출, 비상금 3개월 치 만들기, 흔한 실수 피하는 법을 단계별로 정리합니다.</description>
+    </item>
+    <item>
+      <title>연말정산 기초 정리 — 13월의 월급이 되는 원리</title>
+      <link>https://money-tools.org/guide-year-end-tax.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-year-end-tax.html</guid>
+      <category>세금</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>연말정산이 무엇인지, 왜 환급이나 추가 납부가 생기는지, 소득공제와 세액공제의 차이, 신용카드 공제의 기본 구조까지 처음 하는 사람 눈높이로 정리합니다.</description>
+    </item>
+    <item>
+      <title>예금자보호 1억원 시대 — 내 돈은 어디까지 안전할까</title>
+      <link>https://money-tools.org/guide-deposit-protection.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-deposit-protection.html</guid>
+      <category>저축</category>
+      <pubDate>Sun, 30 Aug 2026 07:30:00 +0900</pubDate>
+      <description>2025년 9월부터 예금자보호 한도가 1억원으로 상향됐습니다. 보호 대상 금융회사와 상품, 1인당 한도 계산 방식, 보호되지 않는 상품 구분법을 정리합니다.</description>
+    </item>
+  </channel>
+</rss>

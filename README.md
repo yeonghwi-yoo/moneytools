@@ -39,8 +39,11 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 ├── 404.html          # 404 (스타일 인라인)
 ├── ads.txt           # 애드센스 발급 후 pub ID 교체
 ├── sitemap.xml
+├── rss.xml           # 가이드 RSS 피드 (자동 생성, 직접 편집 금지)
 ├── robots.txt
 ├── .nojekyll
+├── scripts/
+│   └── build_rss.py  # guide-*.html → rss.xml 생성기
 └── assets/
     ├── style.css     # 공용 스타일 (모바일 우선)
     ├── rates.js      # ★ 요율 상수 (여기만 고치면 전체 반영)
@@ -72,10 +75,20 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 - 갱신 후 각 계산기 페이지 하단 `notice`의 기준일 문구와 `rates.js`의 `baseDate`도 함께 수정
 - `salary-table.html`·`salary.html`의 연봉별 표와 `hourly.html`의 시급별 표는 정적 HTML이므로, 요율 변경 시 같은 산식으로 다시 생성해 교체
 
+## 가이드 추가 시
+
+1. `guide-*.html` 작성 (기존 가이드를 템플릿으로)
+2. `guides.html` 목록 맨 앞에 항목 추가
+3. `sitemap.xml`에 URL 추가
+4. **`python3 scripts/build_rss.py` 실행** → `rss.xml` 자동 갱신 (직접 편집하지 말 것)
+
+RSS는 네이버 서치어드바이저에 제출되어 새 글을 자동으로 수집하게 합니다.
+
 ## SEO 구조
 
 - 모든 색인 페이지에 canonical, Open Graph, JSON-LD(계산기 `WebApplication`, 가이드 `Article`, FAQ `FAQPage`, `BreadcrumbList`) 포함
-- 가이드 추가 시 `article-meta`의 날짜가 JSON-LD `datePublished`와 일치해야 함
+- 가이드 추가 시 `article-meta`의 날짜가 JSON-LD `datePublished`와 일치해야 함 (RSS의 `pubDate`도 이 날짜를 사용)
+- 전 페이지 `<head>`에 RSS `alternate` 링크 포함
 
 ## 애드센스 신청 절차 체크리스트
 
