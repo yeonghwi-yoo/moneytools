@@ -14,7 +14,7 @@
 (function () {
   "use strict";
 
-  var GA_ID = "";   // ← 여기만 바꾸면 됩니다
+  var GA_ID = "G-GMDKK7X8ER";   // ← 여기만 바꾸면 됩니다
 
   if (!/^G-[A-Z0-9]{6,}$/.test(GA_ID)) return;
 
