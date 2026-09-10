@@ -46,6 +46,7 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 │   └── build_rss.py  # guide-*.html → rss.xml 생성기
 └── assets/
     ├── style.css     # 공용 스타일 (모바일 우선)
+    ├── analytics.js  # ★ GA4 측정 ID (여기만 고치면 전체 반영, 비어 있으면 비활성)
     ├── rates.js      # ★ 요율 상수 (여기만 고치면 전체 반영)
     └── calc.js       # 모든 계산기 로직 + 공용 유틸
 ```
@@ -84,11 +85,24 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 
 RSS는 네이버 서치어드바이저에 제출되어 새 글을 자동으로 수집하게 합니다.
 
+## 구글 애널리틱스(GA4) 연결
+
+1. analytics.google.com → 관리 → 속성 만들기 → 데이터 스트림 → 웹 → `https://money-tools.org`
+2. 발급된 측정 ID(`G-`로 시작)를 `assets/analytics.js` 의 `GA_ID` 에 넣고 배포
+
+```js
+var GA_ID = "G-XXXXXXXXXX";
+```
+
+`GA_ID` 가 비어 있으면 스크립트를 아예 불러오지 않고 외부 요청도 보내지 않습니다.
+전 페이지가 이 파일 하나를 참조하므로 HTML은 손댈 필요가 없습니다.
+개인정보처리방침 4항(웹 분석 도구)에 이미 GA 관련 고지와 옵트아웃 링크가 있습니다.
+
 ## SEO 구조
 
 - 모든 색인 페이지에 canonical, Open Graph, JSON-LD(계산기 `WebApplication`, 가이드 `Article`, FAQ `FAQPage`, `BreadcrumbList`) 포함
 - 가이드 추가 시 `article-meta`의 날짜가 JSON-LD `datePublished`와 일치해야 함 (RSS의 `pubDate`도 이 날짜를 사용)
-- 전 페이지 `<head>`에 RSS `alternate` 링크 포함
+- 전 페이지 `<head>`에 RSS `alternate` 링크와 `assets/analytics.js` 포함 (404는 절대 경로)
 
 ## 애드센스 신청 절차 체크리스트
 
