@@ -37,7 +37,7 @@ GitHub Pages 사이트 생성은 리포 관리자만 할 수 있어 최초 1회 
 ├── about.html        # 소개
 ├── privacy.html      # 개인정보처리방침
 ├── 404.html          # 404 (스타일 인라인)
-├── ads.txt           # 애드센스 발급 후 pub ID 교체
+├── ads.txt           # 애드센스 게시자 라인 (적용 완료)
 ├── sitemap.xml
 ├── rss.xml           # 가이드 RSS 피드 (자동 생성, 직접 편집 금지)
 ├── robots.txt
@@ -109,8 +109,9 @@ var GA_ID = "G-XXXXXXXXXX";
 1. [ ] 사이트 배포 확인 (모든 페이지 정상 로드, 모바일 확인)
 2. [ ] 구글 서치콘솔 등록: 각 페이지 head의 `google-site-verification` 주석을 실제 값으로 교체 후 주석 해제, `sitemap.xml` 제출
 3. [ ] (선택) 네이버 서치어드바이저 등록: `naver-site-verification` 메타 태그 교체
-4. [ ] 애드센스 계정 생성 후 사이트 추가 → 발급받은 `ca-pub-XXXXXXXXXXXXXXXX`로 각 페이지 head의 애드센스 스크립트 주석을 교체 후 주석 해제
-5. [ ] 루트 `ads.txt`의 주석을 지우고 `pub-XXXXXXXXXXXXXXXX`를 실제 게시자 ID로 교체
+4. [x] 애드센스 스크립트(`ca-pub-7635369920244942`)를 404를 제외한 전 페이지 head에 적용 (2026-09-13). 404는 콘텐츠 없는 페이지 광고 정책 때문에 제외
+5. [x] 루트 `ads.txt`에 게시자 라인 적용 (2026-09-13)
+   - 애드센스 계정은 street-speaks.com에서 심사 중이며, 승인 후 같은 계정에 "사이트 추가"로 money-tools.org를 등록(셋 중 마지막 순서)
 6. [ ] 심사 통과 후 광고 단위 생성 → 각 페이지 본문의 `<!-- AD SLOT -->` 주석 위치에 광고 코드 삽입 (페이지당 2곳)
 7. [ ] 개인정보처리방침(`privacy.html`)의 광고·쿠키 조항 최신 상태 유지
 
