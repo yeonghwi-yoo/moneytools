@@ -11,6 +11,10 @@
 - 관련 계산기·가이드 링크 3개 이상 (본문 안 자연스러운 위치 + 관련 링크 박스)
 - 기존 FAQ는 유지·보강. 표는 `<table>` 사용. 과장·수익보장 표현 금지, 면책 notice 유지
 - 시의성 수치는 웹 검색으로 재확인하고 기준일 갱신. 실명·GitHub 계정 금지
+- notice의 원래 기준일은 유지하고 "(본문 갱신 YYYY-MM-DD)"만 덧붙임. 가이드는 article-meta 날짜와 JSON-LD datePublished를 절대 바꾸지 않고 dateModified만 갱신 (게시일이 한 날짜로 몰리면 안 됨)
+- 섹션 구성은 1~3일차 결과를 따름: 기존 본문 유지 → "계산식과 근거"(법령 조문·고시·공시명) → "계산 예시"(h3 + 표, 계산기는 div.table-scroll>table.data-table, 강조 셀은 td.net) → "자주 틀리는 지점"(6~8개) → 기존 용어정리·FAQ(+1개 추가) → notice. 관련 링크는 본문 문장 안에 자연스럽게. 완성 분량은 3,000자 안팎
+- FAQ를 추가하면 `python3 scripts/check_content.py --sync-faq <파일>`로 FAQPage JSON-LD 재생성, 검증은 `python3 scripts/check_content.py <파일들>`
+- 완료 표시 형식: `- [x] 파일명 (→ N자, YYYY-MM-DD Dn 완료)`, sitemap.xml 해당 URL lastmod 갱신
 
 ## 계산기 (설명 본문 ≥ 1,500자)
 
