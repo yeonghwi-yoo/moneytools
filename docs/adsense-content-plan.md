@@ -22,12 +22,12 @@
 - [x] goal.html (→ 3,089자, 2026-09-13 D2 완료)
 - [x] annual-leave.html (→ 3,352자, 2026-09-13 D2 완료)
 - [x] insurance.html (→ 4,033자, 2026-09-13 D2 완료)
-- [ ] unemployment.html (1,428)
-- [ ] hourly.html (1,684 → 예시·오해 섹션 보강)
+- [x] unemployment.html (→ 3,422자, 2026-09-13 D3 완료)
+- [x] hourly.html (→ 3,606자, 2026-09-13 D3 완료)
 
 ## 가이드 (본문 ≥ 2,500자)
 
-- [ ] guide-deposit-protection.html (1,120)
+- [x] guide-deposit-protection.html (→ 3,087자, 2026-09-13 D3 완료)
 - [ ] guide-severance-tax.html (1,136)
 - [ ] guide-loan-repayment.html (1,143)
 - [ ] guide-interest-tax.html (1,195)
@@ -43,7 +43,7 @@
 
 ## 기타
 
-- [ ] about.html (546 → 운영 목적·계산 근거·갱신 정책·문의를 1,000자 이상으로)
+- [x] about.html (→ 1,603자, 2026-09-13 D3 완료)
 
 ## 이미 기준 충족 (손대지 않음)
 
