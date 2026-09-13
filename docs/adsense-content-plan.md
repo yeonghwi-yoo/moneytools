@@ -14,10 +14,10 @@
 
 ## 계산기 (설명 본문 ≥ 1,500자)
 
-- [ ] savings.html (965)
-- [ ] deposit.html (1,020)
-- [ ] loan.html (1,012)
-- [ ] salary.html (1,673 → 예시·오해 섹션 보강)
+- [x] savings.html (→ 3,012자, 2026-09-13 D1 완료)
+- [x] deposit.html (→ 2,999자, 2026-09-13 D1 완료)
+- [x] loan.html (→ 3,218자, 2026-09-13 D1 완료)
+- [x] salary.html (→ 4,219자, 2026-09-13 D1 완료)
 - [ ] severance.html (994)
 - [ ] goal.html (1,083)
 - [ ] annual-leave.html (1,291)
