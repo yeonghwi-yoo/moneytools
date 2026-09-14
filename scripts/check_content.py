@@ -50,7 +50,9 @@ class Bal(HTMLParser):
         else: s.st.pop()
 
 def validate(page):
+    # 404.html은 광고 정책상 애드센스 스크립트·AD SLOT·canonical을 두지 않는다(의도된 예외).
     p=os.path.join(REPO,page); s=open(p,encoding='utf-8').read(); errs=[]
+    if page=='404.html': return errs
     b=Bal(); b.feed(s)
     if b.err or b.st: errs.append('tag balance: %s %s'%(b.err[:3],b.st[:3]))
     dp=re.search(r'"datePublished":"([0-9-]+)"',s); meta=re.search(r'article-meta">.*?· ([0-9]{4}-[0-9]{2}-[0-9]{2}) 기준',s)
@@ -59,15 +61,16 @@ def validate(page):
     if dp and dm and dm.group(1)<dp.group(1): errs.append('dateModified before datePublished')
     if s.count('<!-- AD SLOT -->')!=2: errs.append('AD SLOT count %d'%s.count('<!-- AD SLOT -->'))
     if s.count('adsbygoogle.js')!=1: errs.append('adsense script count')
-    m=re.search(r'<link rel="canonical" href="https://money-tools.org/([^"]+)">',s)
-    if not m or m.group(1)!=page: errs.append('canonical')
+    m=re.search(r'<link rel="canonical" href="https://money-tools.org/([^"]*)">',s)
+    want='' if page=='index.html' else page   # 홈은 루트 주소가 canonical
+    if not m or m.group(1)!=want: errs.append('canonical')
     for ld in re.findall(r'<script type="application/ld\+json">(.*?)</script>',s,re.S):
         try: json.loads(ld)
         except Exception as e: errs.append('jsonld: %s'%e)
-    t=re.search(r'<title>(.*?)</title>',s,re.S).group(1); og=re.search(r'og:title" content="(.*?)"',s).group(1)
-    if t!=og: errs.append('og:title != title')
-    nav=re.search(r'<nav class="site-nav">(.*?)</nav>',s,re.S).group(1)
-    if nav.count('<a ')!=11: errs.append('nav count %d'%nav.count('<a '))
+    t=re.search(r'<title>(.*?)</title>',s,re.S); og=re.search(r'og:title" content="(.*?)"',s)
+    if t and og and t.group(1)!=og.group(1): errs.append('og:title != title')
+    nav=re.search(r'<nav class="site-nav">(.*?)</nav>',s,re.S)
+    if nav and nav.group(1).count('<a ')!=11: errs.append('nav count %d'%nav.group(1).count('<a '))
     if re.search(r'github\.io|yeonghwi|victor_14',s): errs.append('PII/github')
     for h in re.findall(r'(?:href|src)="([^"#:]+)"',s):
         f=h.split('?')[0]
