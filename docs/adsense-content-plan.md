@@ -40,10 +40,10 @@
 - [x] guide-year-end-tax.html (→ 3,467자, 2026-09-15 D5 완료)
 - [x] guide-pension-reform-2026.html (→ 3,366자, 2026-09-15 D5 완료)
 - [x] guide-salary-tax.html (→ 3,571자, 2026-09-15 D5 완료)
-- [ ] guide-first-salary.html (1,389)
-- [ ] guide-insurance-rates-2026.html (1,394)
-- [ ] guide-pension-savings-irp.html (1,827)
-- [ ] guide-prepayment-strategy.html (2,174 → 2,500 맞추기)
+- [x] guide-first-salary.html (→ 3,540자, 2026-09-16 D6 완료)
+- [x] guide-insurance-rates-2026.html (→ 3,417자, 2026-09-16 D6 완료)
+- [x] guide-pension-savings-irp.html (→ 3,656자, 2026-09-16 D6 완료)
+- [x] guide-prepayment-strategy.html (→ 3,669자, 2026-09-16 D6 완료)
 
 ## 기타
 
