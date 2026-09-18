@@ -6,7 +6,15 @@
     <description>연봉 실수령액·4대보험·실업급여·적금·대출 등 금융 계산기와 함께 보는 금융 가이드. 2026년 요율·제도 기준.</description>
     <language>ko</language>
     <atom:link href="https://money-tools.org/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Wed, 16 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <item>
+      <title>신용점수 올리는 법 — 연체 등록 기준·카드 이용률·점수대별 대출 이자 차이 (2026)</title>
+      <link>https://money-tools.org/guide-credit-score.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-credit-score.html</guid>
+      <category>대출</category>
+      <pubDate>Fri, 18 Sep 2026 07:30:00 +0900</pubDate>
+      <description>신용점수(NICE·KCB 1,000점제)가 어떻게 계산되고, 연체 30만원·30일 기준이 무엇이며, 점수대에 따라 신용대출 이자가 얼마나 갈리는지 숫자로 정리합니다. 카드 이용률 30%, 비금융정보 등록 등 실제로 점수를 올리는 방법과 흔한 오해까지.</description>
+    </item>
     <item>
       <title>기준금리 인상, 내 대출 이자는 얼마나 오를까 — 코픽스·가산금리와 반영 시차 (2026)</title>
       <link>https://money-tools.org/guide-interest-rate-news.html</link>
