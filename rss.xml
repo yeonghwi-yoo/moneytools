@@ -6,7 +6,15 @@
     <description>연봉 실수령액·4대보험·실업급여·적금·대출 등 금융 계산기와 함께 보는 금융 가이드. 2026년 요율·제도 기준.</description>
     <language>ko</language>
     <atom:link href="https://money-tools.org/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Fri, 18 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <item>
+      <title>상여금·성과급 세금 계산 — 별도 세율은 없다, 지급 달에 많이 떼이는 이유와 실수령액 (2026)</title>
+      <link>https://money-tools.org/guide-bonus-tax.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-bonus-tax.html</guid>
+      <category>세금</category>
+      <pubDate>Mon, 21 Sep 2026 07:30:00 +0900</pubDate>
+      <description>성과급·상여금에는 별도 세율이 없고 연간 근로소득에 합산됩니다. 지급대상기간 방식의 원천징수 계산법, 4대보험 부과 기준, 상여 500만·1,000만·2,000만원의 실제 세금과 실수령액, 명절상여 비과세 오해까지 숫자로 정리합니다.</description>
+    </item>
     <item>
       <title>신용점수 올리는 법 — 연체 등록 기준·카드 이용률·점수대별 대출 이자 차이 (2026)</title>
       <link>https://money-tools.org/guide-credit-score.html</link>
