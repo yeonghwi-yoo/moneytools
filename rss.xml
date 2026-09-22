@@ -6,7 +6,15 @@
     <description>연봉 실수령액·4대보험·실업급여·적금·대출 등 금융 계산기와 함께 보는 금융 가이드. 2026년 요율·제도 기준.</description>
     <language>ko</language>
     <atom:link href="https://money-tools.org/rss.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>Mon, 21 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 07:30:00 +0900</lastBuildDate>
+    <item>
+      <title>전세보증금 지키는 법 — 전입신고·확정일자·반환보증 3단계와 하루 공백의 함정 (2026)</title>
+      <link>https://money-tools.org/guide-jeonse-deposit-protection.html</link>
+      <guid isPermaLink="true">https://money-tools.org/guide-jeonse-deposit-protection.html</guid>
+      <category>부동산</category>
+      <pubDate>Wed, 23 Sep 2026 07:30:00 +0900</pubDate>
+      <description>전입신고와 확정일자가 각각 무엇을 지켜 주는지, 대항력이 &#x27;다음 날 0시&#x27;에 생겨 하루 공백이 왜 위험한지, 경매로 넘어갔을 때 실제로 얼마를 돌려받는지, HUG 전세보증금반환보증 가입 조건(공시가격 126% 룰)까지 숫자로 정리합니다.</description>
+    </item>
     <item>
       <title>상여금·성과급 세금 계산 — 별도 세율은 없다, 지급 달에 많이 떼이는 이유와 실수령액 (2026)</title>
       <link>https://money-tools.org/guide-bonus-tax.html</link>
